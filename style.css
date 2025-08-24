@@ -828,6 +828,22 @@ p {
     gap: 24px;
 }
 
+/* Contact cards row style */
+.contact-cards-row {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+@media (max-width: 768px) {
+    .contact-cards-row {
+        flex-direction: column;
+        gap: 24px;
+    }
+}
+
 .contact-card {
     background: white;
     border-radius: 12px;
@@ -1032,6 +1048,15 @@ p {
 
 .about p {
     margin-bottom: 12px;
+}
+
+/* Section background putih kecuali hero dan footer */
+.services,
+.clients,
+.about,
+.news,
+.contact {
+    background: #fff !important;
 }
 
 /* Custom Scrollbar */
