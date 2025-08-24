@@ -1021,6 +1021,46 @@ p {
     }
 }
 
+/* Spacing for About Us section */
+.about .section-badge {
+    margin-bottom: 24px;
+}
+
+.about h1, .about h2 {
+    margin-bottom: 20px;
+}
+
+.about p {
+    margin-bottom: 12px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff9800;
+    border-radius: 8px;
+    border: 2px solid #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffb74d;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 8px;
+}
+
+/* Firefox */
+html {
+    scrollbar-color: #ff9800 #fff;
+    scrollbar-width: thin;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     0% {
