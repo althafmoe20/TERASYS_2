@@ -316,3 +316,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (heroButtons) heroButtons.classList.add('animated');
     }
 });
+
+// Logo click scroll to home
+document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.getElementById('logo-link');
+    if (logo) {
+        logo.addEventListener('click', function(e) {
+            e.preventDefault();
+            const home = document.getElementById('home');
+            if (home) {
+                home.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+});
