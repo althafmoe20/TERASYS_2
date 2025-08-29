@@ -330,3 +330,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Fade-in animation for clients section
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.clients .section-animate').forEach(el => observer.observe(el));
+});

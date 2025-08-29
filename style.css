@@ -125,34 +125,39 @@ body {
         font-size: 0.95rem;
     }
 
-    /* Clients section: horizontal scroll */
-    .clients {
-        padding: 40px 0 32px 0;
-    }
-    .clients-grid {
-        display: flex !important;
-        flex-direction: row;
-        gap: 16px !important;
-        overflow-x: auto;
-        overflow-y: visible;
-        margin-top: 24px;
-        padding-left: 16px;
-        padding-right: 16px;
-        scroll-snap-type: x mandatory;
-    }
-    .client-card {
-        min-width: 110px;
-        max-width: 120px;
-        padding: 16px;
-        border-radius: 10px;
-        flex: 0 0 auto;
-        scroll-snap-align: start;
-        margin-bottom: 0;
-    }
-    .client-logo img {
-        max-width: 80px;
-        height: 36px;
-    }
+    /* Styling untuk Tampilan Desktop & Tablet */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Tetap 6 kolom agar bisa membesar */
+    gap: 32px;                             /* Jarak antar logo */
+    align-items: center;                   /* Posisi vertikal di tengah */
+    margin-top: 64px;
+}
+
+/* Ukuran untuk setiap kartu logo */
+.client-card {
+    background: rgba(255, 152, 0, 0.02);
+    border: 1px solid rgba(255, 152, 0, 0.1);
+    border-radius: 16px;
+    padding: 32px; /* Padding di dalam kartu logo */
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.client-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(255, 152, 0, 0.1);
+}
+
+/* Ukuran spesifik untuk gambar logo di dalamnya */
+.client-logo img {
+    max-width: 140px;
+    height: 60px;
+    object-fit: contain;
+}
 
     /* About section */
     .about {
@@ -582,7 +587,7 @@ p {
         display: block;
         width: 26px;
         height: 3px;
-        background: #ff9800;
+        background: #ffffff;
         border-radius: 2px;
         transition: all 0.3s;
     }
@@ -809,44 +814,40 @@ p {
     transform: translateX(8px);
 }
 
-/* Clients Section */
+/* Clients section: horizontal scroll */
 .clients {
-    padding: 120px 0 120px 0; /* Tambah white space atas dan bawah */
-    background: white;
+    /* Mengatur ulang padding section agar pas di mobile */
+    padding: 120px 0 120px 0;
 }
-
 .clients-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 kolom, 1 baris */
-    gap: 48px;
-    justify-items: center;
-    align-items: center;
-    margin-top: 64px;
-    justify-content: center; /* Tambahkan ini agar grid di tengah */
+    display: flex !important; /* Mengubah layout menjadi flexbox */
+    flex-direction: row; /* Memastikan item berjajar ke samping */
+    gap: 32px !important; /* Memberi jarak antar logo */
+    overflow-x: auto; /* KUNCI UTAMA: Mengaktifkan scroll horizontal */
+    margin-top: 24px;
+    /* Memberi padding agar logo tidak terlalu mepet tepi & ada ruang untuk scrollbar */
+    padding: 16px; 
+    scroll-snap-type: x mandatory; /* Efek "snap" saat scrolling */
+    
+    /* Menghilangkan tampilan scrollbar yang mengganggu */
+    scrollbar-width: none; /* Untuk Firefox */
+    -ms-overflow-style: none; /* Untuk IE dan Edge */
 }
-
+.clients-grid::-webkit-scrollbar {
+    display: none; /* Untuk Chrome, Safari, dan Opera */
+}
 .client-card {
-    background: rgba(255, 152, 0, 0.02);
-    border: 1px solid rgba(255, 152, 0, 0.1);
-    border-radius: 16px;
-    padding: 48px;
-    text-align: center;
-    transition: all 0.3s ease;
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* Memastikan setiap kartu logo punya ukuran tetap dan tidak menyusut */
+    flex: 0 0 120px; /* Tidak akan menyusut, basis lebar 120px */
+    padding: 24px;
+    border-radius: 12px;
+    scroll-snap-align: start; /* Posisi snap di awal kartu */
+    margin-bottom: 0;
+    min-height: 100px;
 }
-
-.client-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(255, 152, 0, 0.1);
-}
-
 .client-logo img {
-    max-width: 120px;
-    height: 48px;
-    object-fit: contain;
+    max-width: 100%; /* Gambar logo responsif di dalam kartu */
+    height: 40px; /* Menyamakan tinggi semua logo */
 }
 
 @media (max-width: 900px) {
@@ -862,6 +863,101 @@ p {
         /* opsional: agar tidak ada margin negatif dari container */
         margin-left: -8px;
         margin-right: -8px;
+        .clients-grid {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-start !important; /* <<< INI PENAMBAHAN PENTINGNYA */
+    gap: 32px !important;
+    overflow-x: auto;
+    margin-top: 24px;
+    padding: 16px;
+    scroll-snap-type: x mandatory;
+    
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.clients-grid::-webkit-scrollbar {
+    display: none;
+}
+    }
+}
+
+/* --- CLIENTS SECTION PROFESSIONAL DESIGN --- */
+.clients {
+    padding: 150px 0 130px 0; /* Banyak whitespace atas bawah */
+    background: #fff;
+}
+
+.clients .section-header {
+    margin-bottom: 26px;
+}
+
+.clients-logos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 48px;
+    justify-items: center;
+    align-items: center;
+    padding: 30px 0; /* whitespace atas bawah logo */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    min-height: 120px;
+    transition: box-shadow 0.3s;
+}
+
+.client-logo img {
+    max-width: 160px;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(0%);
+    transition: filter 0.3s;
+}
+
+.client-logo:hover img {
+    filter: grayscale(0%) brightness(1.1);
+}
+
+/* --- MOBILE: horizontal scroll --- */
+@media (max-width: 900px) {
+    .clients {
+        padding: 56px 0 56px 0;
+    }
+    .clients-logos {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        overflow-x: auto;
+        padding: 24px 0;
+        justify-content: flex-start;
+        align-items: center;
+        scroll-snap-type: x mandatory;
+    }
+    .client-logo {
+        flex: 0 0 140px;
+        min-width: 140px;
+        max-width: 140px;
+        padding: 18px;
+        margin: 0;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        scroll-snap-align: center;
+    }
+    .client-logo img {
+        max-width: 100px;
+        max-height: 48px;
+    }
+    .clients-logos::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -1544,4 +1640,18 @@ html {
     text-align: center !important;
     justify-content: center !important;
     align-items: center !important;
+}
+
+/* Clients Section Animation */
+.clients .section-header.section-animate,
+.clients .clients-logos.section-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.77,0,.175,1), transform 0.8s cubic-bezier(.77,0,.175,1);
+}
+
+.clients .section-header.animated,
+.clients .clients-logos.animated {
+    opacity: 1;
+    transform: none;
 }
