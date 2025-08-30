@@ -1655,3 +1655,9 @@ html {
     opacity: 1;
     transform: none;
 }
+
+/* Sejajarkan nomor list dengan text di atas */
+ol {
+    padding-left: 18px; /* default biasanya 40px, kecilkan jadi 20px */
+    margin-left: 0;
+}
