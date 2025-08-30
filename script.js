@@ -307,6 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
         heroContent.classList.add('animated');
         const heroBadge = heroContent.querySelector('.hero-badge');
         if (heroBadge) heroBadge.classList.add('animated');
+        // Tambahkan animasi pada child
         const heroTitle = heroContent.querySelector('.hero-title');
         const heroSubtitle = heroContent.querySelector('.hero-subtitle');
         const heroButtons = heroContent.querySelector('.hero-buttons');
