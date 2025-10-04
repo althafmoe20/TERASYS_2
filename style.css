@@ -1180,13 +1180,13 @@ p {
 }
 
 .news-image-awards {
-    background: url('images/NEWS_AWARDS.png') center center/cover no-repeat, linear-gradient(135deg, #ff9800, #ff9800);
+    background: url('images/NEWS_NVIDIA.png') center center/cover no-repeat, linear-gradient(135deg, #ff9800, #ff9800);
 }
 .news-image-partnership {
-    background: url('images/NEWS_PARTNERSHIP.png') center center/cover no-repeat, linear-gradient(135deg, #ff9800, #ff9800);
+    background: url('images/NEWS_KOMDIGI.jpeg') center center/cover no-repeat, linear-gradient(135deg, #ff9800, #ff9800);
 }
 .news-image-launch {
-    background: url('images/NEWS_LAUNCH.png') center center/cover no-repeat, linear-gradient(135deg, #ff9800, #ff9800);
+    background: url('images/NEWS_UI.jpeg') center center/cover no-repeat, linear-gradient(135deg, #ff9800, #ff9800);
 }
 
 .news-category {
@@ -1552,6 +1552,66 @@ p {
     background: #fff !important;
 }
 
+/* Tambahan untuk hero news */
+.news-hero {
+    background: linear-gradient(135deg, #ff9800, #fffbe6 100%);
+    padding: 120px 0 40px 0;
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.news-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('images/NEWS_NVIDIA.png') center center/cover no-repeat;
+    opacity: 0.18;
+    z-index: 1;
+}
+.news-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,rgba(0,0,0,0.25) 0%,rgba(0,0,0,0.05) 100%);
+    z-index: 2;
+}
+.news-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #222;
+    animation: fadeInUp 1s cubic-bezier(.77,0,.175,1) both;
+}
+.news-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 18px;
+    line-height: 1.15;
+}
+.news-meta {
+    color: #fff;
+    font-size: 1rem;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+.news-category-badge {
+    background: #fff3e0;
+    color: #ff9800;
+    font-weight: 700;
+    border-radius: 16px;
+    padding: 8px 22px;
+    font-size: 15px;
+    margin-bottom: 22px;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
@@ -1656,8 +1716,163 @@ html {
     transform: none;
 }
 
-/* Sejajarkan nomor list dengan text di atas */
-ol {
-    padding-left: 18px; /* default biasanya 40px, kecilkan jadi 20px */
-    margin-left: 0;
+/* News Hero Section - Dark Background */
+.news-hero {
+    background: linear-gradient(135deg, #23272f 0%, #23272f 100%);
+    padding: 120px 0 40px 0;
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.news-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('images/NEWS_NVIDIA.png') center center/cover no-repeat;
+    opacity: 0.18;
+    z-index: 1;
+}
+.news-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.25) 100%);
+    z-index: 2;
+}
+.news-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+    animation: fadeInUp 1s cubic-bezier(.77,0,.175,1) both;
+}
+.news-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 18px;
+    line-height: 1.15;
+}
+.news-meta {
+    color: #e5e7eb;
+}
+
+/* Detail News Styles */
+.news-detail-main {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    padding: 40px 32px 32px 32px;
+    margin-bottom: 32px;
+    animation: fadeInUp 1.2s cubic-bezier(.77,0,.175,1) both;
+}
+.news-detail-body h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 8px;
+}
+.news-detail-body p {
+    font-size: 1.15rem;
+    color: #37331f;
+    margin-bottom: 18px;
+    line-height: 1.7;
+}
+.news-detail-body blockquote {
+    border-left: 4px solid #ff9800;
+    background: #fffbe6;
+    color: #ff9800;
+    font-style: italic;
+    margin: 24px 0;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    position: relative;
+}
+.news-detail-body blockquote::before {
+    content: "❝";
+    font-size: 2rem;
+    color: #ff9800;
+    position: absolute;
+    left: 12px;
+    top: 8px;
+}
+.news-detail-img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.news-detail-sidebar {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    padding: 32px 24px;
+    border-left: 4px solid #ff9800;
+}
+.news-detail-sidebar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    color: #ff9800;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.news-detail-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.news-detail-sidebar li {
+    margin-bottom: 18px;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 12px;
+}
+.news-detail-sidebar a {
+    display: flex;
+    align-items: center;
+    color: #37331f;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s, background 0.2s;
+    border-radius: 8px;
+    padding: 6px 4px;
+}
+.news-detail-sidebar a:hover {
+    color: #ff9800;
+    background: #fffbe6;
+}
+.sidebar-news-img {
+    width: 64px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.news-title-link {
+    color: #ff9800 !important;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.8s cubic-bezier(.77,0,.175,1), opacity 0.8s cubic-bezier(.77,0,.175,1);
+    opacity: 0;
+    transform: translateY(40px);
+    display: inline-block;
+}
+.news-title-link.animated, .news-title-link.fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+}
+.news-title-link:hover {
+    color: #fb7200 !important;
+    text-decoration: underline;
 }
